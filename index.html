@@ -393,9 +393,17 @@
   </div>
 
   <aside class="inquire" id="inquire" data-section="inquire">
+    <button type="button" class="inq-launch" id="inqLaunch" onclick="toggleInquiry()" aria-label="Open inquiry form">
+      <span class="dot"></span> Arrange a viewing
+    </button>
     <div id="inqWrap">
-      <div class="h">Private Inquiry</div>
-      <h2>Arrange a viewing</h2>
+      <div class="inq-head">
+        <div>
+          <div class="h">Private Inquiry</div>
+          <h2>Arrange a viewing</h2>
+        </div>
+        <button type="button" class="inq-min" id="inqMin" onclick="toggleInquiry()" aria-label="Minimize form" title="Minimize">&minus;</button>
+      </div>
       <div class="s">We'll text &amp; email directions and details.</div>
       <div class="inq-field">
         <label for="i_name">Name</label>
@@ -415,7 +423,7 @@
         <label for="i_note">Note (optional)</label>
         <textarea id="i_note" placeholder="Anything the agent should know"></textarea>
       </div>
-      <button type="button" id="inqBtn" onclick="submitInquiry()">Request Directions</button>
+      <button type="button" class="submit-btn" id="inqBtn" onclick="submitInquiry()">Request Directions</button>
       <div class="inq-fine">By submitting you agree to receive a text about this listing from Elite Home Group.</div>
     </div>
     <div id="okBlock">
@@ -427,6 +435,10 @@
 
 <script>
 var WEBHOOK_URL = "https://paymegpt.com/api/webhooks/flow/4462/3df87a7060a4c17686da5f4f2d527a908c5ad99c9f83aeaa6e84ad780b148a27";
+
+function toggleInquiry(){
+  document.getElementById('inquire').classList.toggle('collapsed');
+}
 
 function submitInquiry(){
   var name = document.getElementById('i_name').value.trim();
