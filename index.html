@@ -384,10 +384,42 @@
         </div>
       </div>
 
-      <footer data-section="footer">
-        <div class="fmark">Elite Home&nbsp;<b>Group</b></div>
-        <div class="faddr">1715 Sherman Dr, New Hartford, NY 13413 · $739,900</div>
-        <div class="fine">© 2026 Elite Home Group. All information deemed reliable but not guaranteed.</div>
+      <footer class="agent" data-section="footer">
+        <div class="agent-grid">
+          <div class="agent-photo">
+            <div class="ring">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Victoria Sterling — Realtor">
+            </div>
+            <div class="badge" title="Top Producer">✦</div>
+            <div class="agent-compliance"><span>◆</span> Equal Housing &nbsp;·&nbsp; <span>®</span> REALTOR</div>
+          </div>
+
+          <div class="agent-detail">
+            <div class="org">Elite Home Group · Private Collection</div>
+            <div class="who">Victoria Sterling</div>
+            <div class="role">Principal Realtor &amp; Luxury Specialist</div>
+            <p class="bio">Representing premier residential properties with over 14 years of dedicated real estate excellence, personalized service, and local market mastery.</p>
+            <div class="lic">NY RE Lic <b>#10401298451</b></div>
+          </div>
+
+          <div class="agent-actions">
+            <a class="call" href="tel:3157948820">Call (315) 794-8820</a>
+            <a class="email" href="mailto:victoria@elitehomegroup.com">Email Agent</a>
+            <button class="vcard" type="button" onclick="downloadVCard()">Save Contact (vCard)</button>
+          </div>
+        </div>
+
+        <div class="agent-social">
+          <div class="label">Connect with Victoria</div>
+          <div class="links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" title="Instagram">IG</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" title="LinkedIn">IN</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" title="Facebook">FB</a>
+            <a href="https://zillow.com" target="_blank" rel="noopener" title="Zillow">Z</a>
+          </div>
+        </div>
+
+        <div class="agent-legal">1715 Sherman Dr, New Hartford, NY 13413 · $739,900 &nbsp;·&nbsp; © 2026 Elite Home Group. All information deemed reliable but not guaranteed.</div>
       </footer>
     </div>
   </div>
@@ -471,6 +503,19 @@ function submitInquiry(){
     document.getElementById('inqWrap').style.display = 'none';
     document.getElementById('okBlock').style.display = 'block';
   });
+}
+
+function downloadVCard(){
+  var vcardData =
+"BEGIN:VCARD\nVERSION:3.0\nFN:Victoria Sterling\nTITLE:Principal Realtor & Luxury Specialist\nORG:Elite Home Group | Private Collection\nTEL;TYPE=CELL,VOICE:(315) 794-8820\nEMAIL;TYPE=PREF,INTERNET:victoria@elitehomegroup.com\nNOTE:NY RE Lic #10401298451 - Equal Housing Opportunity Realtor\nEND:VCARD";
+  var blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement('a');
+  link.href = url;
+  link.setAttribute('download', 'Victoria_Sterling_Realtor.vcf');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 </script>
 </body>
