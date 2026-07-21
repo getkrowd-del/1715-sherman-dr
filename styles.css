@@ -102,14 +102,12 @@
   #okBlock h2{font-family:var(--disp);font-size:20px;margin-bottom:5px}
   #okBlock p{font-size:12px;color:var(--ivory-dim)}
 
-  /* collapse control inside the panel header */
   .inq-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
   .inq-min{flex:none;width:26px;height:26px;margin-top:-2px;border:1px solid var(--line);border-radius:2px;
     background:transparent;color:var(--ivory-dim);cursor:pointer;font-size:15px;line-height:1;
     display:flex;align-items:center;justify-content:center;transition:border-color .15s,color .15s}
   .inq-min:hover{border-color:var(--brass);color:var(--brass)}
 
-  /* collapsed state: hide the panel, show the launcher tab */
   .inquire.collapsed{padding:0;background:transparent;border:0;box-shadow:none;backdrop-filter:none;width:auto;display:flex;justify-content:flex-end}
   .inquire.collapsed::before{display:none}
   .inquire.collapsed > #inqWrap,
@@ -123,17 +121,53 @@
   .inq-launch .dot{width:7px;height:7px;border-radius:50%;background:var(--ink);opacity:.55}
   .inquire.collapsed .inq-launch{display:inline-flex}
 
-  footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-  footer .fmark{font-family:var(--narrow);text-transform:uppercase;letter-spacing:.3em;font-size:12px;color:var(--ivory)}
-  footer .fmark b{color:var(--brass);font-weight:600}
-  footer .faddr{font-size:12px;color:var(--ivory-dim)}
-  footer .fine{width:100%;font-size:11px;color:#5f5b52;margin-top:8px}
+  /* ===== Agent footer (rebuilt in page system) ===== */
+  footer.agent{padding:56px 56px 48px;border-top:1px solid var(--line);position:relative}
+  footer.agent::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
+  .agent-grid{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center}
+  .agent-photo{position:relative;flex:none}
+  .agent-photo .ring{width:132px;height:132px;border-radius:50%;overflow:hidden;border:1px solid var(--brass);background:var(--ink-2)}
+  .agent-photo .ring img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .agent-photo .badge{position:absolute;right:2px;bottom:2px;width:30px;height:30px;border-radius:50%;
+    background:var(--brass);color:var(--ink);display:flex;align-items:center;justify-content:center;
+    font-family:var(--disp);font-size:15px;border:2px solid var(--ink)}
+  .agent-compliance{display:flex;gap:14px;margin-top:14px;justify-content:center;
+    font-family:var(--narrow);text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--ivory-dim)}
+  .agent-compliance span{color:var(--brass-soft)}
+  .agent-detail .org{font-family:var(--narrow);text-transform:uppercase;letter-spacing:.28em;font-size:11px;color:var(--brass);margin-bottom:8px}
+  .agent-detail .who{font-family:var(--disp);font-weight:500;font-size:30px;color:var(--ivory);line-height:1.05}
+  .agent-detail .role{font-family:var(--narrow);text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--ivory-dim);margin-top:6px}
+  .agent-detail .bio{font-size:13px;color:var(--ivory-dim);max-width:34em;margin-top:14px;line-height:1.6}
+  .agent-detail .lic{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:6px 12px;
+    border:1px solid var(--line);border-radius:2px;font-family:var(--narrow);letter-spacing:.1em;font-size:11px;color:var(--ivory-dim)}
+  .agent-detail .lic b{color:var(--brass);font-weight:600}
+  .agent-actions{display:flex;flex-direction:column;gap:10px;min-width:210px}
+  .agent-actions a,.agent-actions button{font-family:var(--narrow);text-transform:uppercase;letter-spacing:.16em;font-size:12px;
+    font-weight:600;padding:12px 16px;border-radius:2px;cursor:pointer;text-align:center;transition:background .15s,border-color .15s,color .15s;border:1px solid var(--line)}
+  .agent-actions .call{background:var(--brass);color:var(--ink);border-color:var(--brass)}
+  .agent-actions .call:hover{background:var(--brass-soft);border-color:var(--brass-soft)}
+  .agent-actions .email{background:transparent;color:var(--ivory)}
+  .agent-actions .email:hover{border-color:var(--brass);color:var(--brass)}
+  .agent-actions .vcard{background:transparent;color:var(--ivory-dim)}
+  .agent-actions .vcard:hover{border-color:var(--brass);color:var(--brass)}
+  .agent-social{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
+  .agent-social .label{font-family:var(--narrow);text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:var(--ivory-dim)}
+  .agent-social .links{display:flex;gap:10px}
+  .agent-social .links a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-family:var(--narrow);font-size:11px;
+    letter-spacing:.04em;color:var(--ivory-dim);transition:background .15s,color .15s,border-color .15s}
+  .agent-social .links a:hover{background:var(--brass);color:var(--ink);border-color:var(--brass)}
+  .agent-legal{margin-top:26px;font-size:11px;color:#5f5b52}
 
   @media(max-width:1080px){
     .shell{grid-template-columns:1fr}
     .visual .frame{position:relative;height:56vh}
     .inquire{position:static;width:auto;margin:0 24px;top:auto;right:auto;backdrop-filter:none;background:var(--ink-2)}
     .inquire.collapsed{margin:0 24px}
+    .agent-grid{grid-template-columns:1fr;text-align:center;justify-items:center;gap:24px}
+    .agent-detail .bio{margin-left:auto;margin-right:auto}
+    .agent-actions{width:100%;max-width:320px}
   }
   @media(max-width:640px){
     .topbar{padding:14px 20px}
@@ -145,5 +179,5 @@
     .ledger .cell{border-bottom:1px solid var(--line)}
     .plates .grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}
     .g-a,.g-b,.g-c,.g-d,.g-e,.g-f{grid-column:span 2;grid-row:span 1}
-    footer{padding:28px 24px}
+    footer.agent{padding:40px 24px}
   }
