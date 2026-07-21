@@ -128,9 +128,6 @@
   .agent-photo{position:relative;flex:none}
   .agent-photo .ring{width:132px;height:132px;border-radius:50%;overflow:hidden;border:1px solid var(--brass);background:var(--ink-2)}
   .agent-photo .ring img{width:100%;height:100%;object-fit:cover;object-position:top}
-  .agent-photo .badge{position:absolute;right:2px;bottom:2px;width:30px;height:30px;border-radius:50%;
-    background:var(--brass);color:var(--ink);display:flex;align-items:center;justify-content:center;
-    font-family:var(--disp);font-size:15px;border:2px solid var(--ink)}
   .agent-compliance{display:flex;gap:14px;margin-top:14px;justify-content:center;
     font-family:var(--narrow);text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--ivory-dim)}
   .agent-compliance span{color:var(--brass-soft)}
